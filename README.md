@@ -1,6 +1,6 @@
 
 ### Legend and Theme:
-There was emulated some system (mobile operator?) for load testing with features like registration, login, plan selection, and file operations.
+We emulated a system (perhaps a mobile operator?) for load testing, with features such as registration, login, plan selection, and file operations.
 
 ### Emulator's methods:
 
