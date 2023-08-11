@@ -8,10 +8,14 @@ from flask_sqlalchemy import SQLAlchemy #, Column, Integer, String, BigInteger, 
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
 from flask_bcrypt import Bcrypt
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123456@localhost/beeline_plug'
-app.config['JWT_SECRET_KEY'] = 'a-very-secret-key' 
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DEVELOPMENT_DATABASE_URI')
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY') 
 
 db = SQLAlchemy(app)
 jwt = JWTManager(app)
@@ -258,5 +262,10 @@ def get_random_mobile_traffic():
     return jsonify(results)
 
 
+HOST = os.getenv('HOST', '0.0.0.0') # Default to '0.0.0.0' if not set
+DEBUG_MODE = os.getenv('DEBUG', 'False').lower() == 'true' # Convert to boolean, default to False
+PORT = int(os.getenv('PORT', 5000)) # Default to 5000 if not set
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=False, port=5000)
+    app.run(host=HOST, debug=DEBUG_MODE, port=PORT)
+
