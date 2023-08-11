@@ -1,3 +1,37 @@
+
+### Legend and Theme:
+There was emulated some system (mobile operator?) for load testing with features like registration, login, plan selection, and file operations.
+
+### Emulator's methods:
+
+1. **Authorization (Task 2.1)**:
+    - **Endpoint**: `/register` (POST)
+    - **Description**: Registers a new user to the system by accepting a JSON object with user details such as name, email, phone number, and password.
+    
+    - **Endpoint**: `/login` (POST)
+    - **Description**: Allows a user to log in by providing their email and password. The method returns a JWT token if the login is successful.
+  
+2. **XML Requests (Tasks 2.2 to 2.4)**:
+    - **Endpoint**: `/plan_selection` (POST)
+    - **Description**: Accepts XML in the body of the request for selecting a plan for the user. This route is protected by JWT, ensuring only authenticated users can access it.
+    
+    - **Endpoint**: `/update_email` (POST)
+    - **Description**: Accepts XML in the body of the request to update the email of the authenticated user.
+    
+    - **Endpoint**: `/update_password` (POST)
+    - **Description**: Accepts XML in the body of the request to update the password of the authenticated user. This method also demonstrates the RSA encryption of the XML request header, as described in Task 2.3.
+  
+3. **Database Interactions (Tasks 2.4 to 2.5)**:
+    - **Endpoint**: `/get_random_mobile_traffic` (GET)
+    - **Description**: Queries the database to fetch a random set of 200 rows of mobile traffic data. This fulfills the task of retrieving large amounts of data from the database.
+  
+4. **File Operations (Tasks 2.6 and 2.7)**:
+    - **Endpoint**: `/download_call_records/<file_size>` (GET)
+    - **Description**: Allows authenticated users to download call record files of a specified size.
+    
+    - **Endpoint**: `/upload` (POST)
+    - **Description**: Accepts files from users and saves them to the server. This method demonstrates the uploading functionality for large files.
+
 ## File Setup for Load Testing
 
 To use this application with JMeter for load testing, you'll need to add specific files to the `files/download` directory. The files you add will depend on the desired load you want to test. Here are the recommended files:
