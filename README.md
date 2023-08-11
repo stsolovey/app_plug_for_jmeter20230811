@@ -16,7 +16,7 @@ Choose and add the appropriate files based on your testing requirements.
 
 This application relies on a PostgreSQL database. Ensure you have PostgreSQL installed and properly configured before running the application.
 
-## Database Connection
+### Database Connection
 To connect to the database, utilize the .env configuration file. Below is a template to guide your setup. Please adjust the values according to your environment and specific requirements.
 
 /```
