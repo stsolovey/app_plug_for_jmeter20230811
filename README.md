@@ -19,7 +19,7 @@ This application relies on a PostgreSQL database. Ensure you have PostgreSQL ins
 ### Database Connection
 To connect to the database, utilize the .env configuration file. Below is a template to guide your setup. Please adjust the values according to your environment and specific requirements.
 
-/```
+```
 FLASK_ENV=dev
 DEVELOPMENT_DATABASE_URI=postgresql://postgres:123456@localhost/beeline_plug
 PRODUCTION_DATABASE_URI=postgresql://your_production_db_uri_here
@@ -27,7 +27,7 @@ JWT_SECRET_KEY=a-very-secret-key
 HOST=0.0.0.0
 DEBUG=False
 PORT=5000
-/```
+```
 
 Ensure the .env file is located at the root of your project directory and is added to your .gitignore to prevent sensitive data from being exposed.
 
